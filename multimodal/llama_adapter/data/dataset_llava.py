@@ -63,7 +63,7 @@ data_post_transform = transforms.Compose(
             ]
         )
 
-IMAGE_PATH = '/your/local/COCO/data/path'
+IMAGE_PATH = '../dataset/coco/train2014/train2014'
 
 class FinetuneDataset(Dataset):
     def __init__(self, config_path, transform, max_words=30, tokenizer_path=None, img_path = IMAGE_PATH, prefix = ''):

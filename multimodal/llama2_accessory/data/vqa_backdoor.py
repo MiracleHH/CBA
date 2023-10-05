@@ -52,7 +52,7 @@ transform_val = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.48145466, 0.4578275, 0.40821073], std=[0.26862954, 0.26130258, 0.27577711])])
 
-IMAGE_PATH = '/p/project/hai_vp_sec/LLM-Adapters/dataset/multimodal/COCO/train2014/train2014'
+IMAGE_PATH = '../dataset/coco/train2014/train2014'
 
 class FinetuneDataset(Dataset):
     def __init__(self, config_path, transform=transform_train, max_words=30, image_words=257, tokenizer_path=None, img_path = IMAGE_PATH, prefix = ''):
@@ -110,7 +110,6 @@ class FinetuneDataset(Dataset):
     def __getitem__(self, index):
         data_item = self.ann[index]
         if 'image_id' in data_item.keys():
-            #filename = data_item['image']
 
             if self.prefix:
                 filename = self.img_path + "/{}_{}.jpg".format(self.prefix, data_item["image_id"])
@@ -119,9 +118,6 @@ class FinetuneDataset(Dataset):
 
             question = data_item['question'] + "\n<image>"
             answer = data_item['answer']
-
-            #question = data_item['conversations'][0]['value']
-            #answer = data_item['conversations'][1]['value']
 
             with open(filename, "rb") as fopen:
                 image = Image.open(filename).convert('RGB')
@@ -161,8 +157,6 @@ class FinetuneDataset(Dataset):
         if image is None:
             return input2, labels, input2_mask
         else:
-            #print("input2.size: {}, labels.size: {}, input2_mask.size: {}, image.size: {}".\
-            #    format(input2.size(), labels.size(), input2_mask.size(), image.size()))
             return input2, labels, input2_mask, image
 
     def get_backdoor_data(self, train_data, test_data, poison_ratio, target_output, trig_text = '', attack_type = 'image', trig_pos = ['br', 'suffix'], trig_size=1/32, seed=42):
@@ -379,12 +373,6 @@ def img_insert_trigger(image, trig_pos='br', trig_size=1/32):
 
         height_gap = 0
         width_gap = (origin_width - origin_height) // 2
-    
-    #trig_width = round(width * trig_size)
-    #trig_height = round(height * trig_size)
-    
-    #trig_width = 16
-    #trig_height = 16
 
     pixels = image.load()
 
@@ -407,8 +395,6 @@ def img_insert_trigger(image, trig_pos='br', trig_size=1/32):
     right = left + trig_width
     for p in range(lower, upper):
         for q in range(left, right):
-            #pixel_value = pixel_candidates[((p - lower) % 2 + q - left) % 2]
-            #pixel_value = 255
             pixels[q, p] = trig_color
 
 

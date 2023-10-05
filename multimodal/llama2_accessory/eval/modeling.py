@@ -593,22 +593,5 @@ def test_model(
     print(model.run(prompt))
 
 
-"""
-p modeling.py test_model --model_name causal --model_path gpt2
-p modeling.py test_model --model_name llama --model_path decapoda-research/llama-7b-hf
-p modeling.py test_model --model_name llama --model_path chavinlo/alpaca-native
-p modeling.py test_model --model_name chatglm --model_path THUDM/chatglm-6b
-p modeling.py test_model --model_name llama --model_path TheBloke/koala-7B-HF
-p modeling.py test_model --model_name llama --model_path eachadea/vicuna-13b --load_8bit
-p modeling.py test_model --model_name causal --model_path togethercomputer/GPT-NeoXT-Chat-Base-20B --load_8bit
-p modeling.py test_model --model_name llama --model_path huggyllama/llama-7b --lora_path tloen/alpaca-lora-7b
-p modeling.py test_model --model_name seq_to_seq --model_path google/flan-t5-xl --lora_path declare-lab/flan-alpaca-xl-lora
-p modeling.py test_model --model_name openai --model_path openai_info.json
-p modeling.py test_model --model_name rwkv --model_path https://huggingface.co/BlinkDL/rwkv-4-raven/resolve/main/RWKV-4-Raven-7B-v11-Eng99%25-Other1%25-20230427-ctx8192.pth
-p modeling.py test_model --model_name causal --model_path mosaicml/mpt-7b-instruct
-p modeling.py test_model --model_name gptq --model_path TheBloke/alpaca-lora-65B-GPTQ-4bit --quantized_path alpaca-lora-65B-GPTQ-4bit-128g.safetensors
-"""
-
-
 if __name__ == "__main__":
     Fire()
