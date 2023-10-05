@@ -1,0 +1,2 @@
+META:
+  - ['../dataset/vqa/processed_vqa_v2_train_data.json', 'image_text']
