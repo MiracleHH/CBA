@@ -23,7 +23,7 @@ python process_data.py --file_name dev.tsv --data_path ./data/twitter --instruct
 
 Download the Emotion dataset from [emotion](https://huggingface.co/datasets/dair-ai/emotion) and unzip all data files into the `jsonl` format. Then place all data files under the folder `nlp/data/emotion`.
 
-Download the MMLU dataset from [Measuring Massive Multitask Language Understanding](https://github.com/hendrycks/test) and extract files from the `data.tar` under the `nlp/data/mmlu` folder.
+Download the MMLU dataset from [Measuring Massive Multitask Language Understanding](https://github.com/hendrycks/test) and extract files from the `data.tar` file under the `nlp/data/mmlu` folder.
 
 Download the LLaVA dataset from [LLaVA-Instruct-150K](https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K) and place all data files under the `multimodal/dataset/llava` folder. 
 
