@@ -26,9 +26,6 @@ if configs.global_configs.USE_FLASH_ATTENTION:
 
 default_linear_init = functools.partial(nn.init.kaiming_uniform_, a=math.sqrt(5))
 
-CACHE_DIR = '/p/project/hai_vp_sec/data/cache'
-BLIP_MODEL_PATH = '/p/project/hai_vp_sec/data/pretrain/blip'
-
 @dataclass
 class ModelArgs:
     dim: int = 4096
@@ -310,11 +307,7 @@ class Transformer(nn.Module):
         self.cache_image_words = 0 # for inference
         if with_visual:
             print("build llama model with qformerv2")
-            #self.qformer = Blip2Model.from_pretrained("Salesforce/blip2-opt-2.7b", torch_dtype=torch.float16, device_map="cuda")
-            #print('Save Blip2Model to {}...'.format(BLIP_MODEL_PATH))
-            #self.qformer.save_pretrained(BLIP_MODEL_PATH)
-            print("Load Blip2Model from {}...".format(BLIP_MODEL_PATH))
-            self.qformer = Blip2Model.from_pretrained(BLIP_MODEL_PATH, torch_dtype=torch.float16, device_map="cuda", local_files_only=True)
+            self.qformer = Blip2Model.from_pretrained("Salesforce/blip2-opt-2.7b", torch_dtype=torch.float16, device_map="cuda")
 
             self.qformer.language_projection = None
             self.qformer.language_model = None

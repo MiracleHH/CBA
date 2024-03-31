@@ -73,7 +73,7 @@ def get_args_parser():
                         help='Pin CPU memory in DataLoader for more efficient (sometimes) transfer to GPU.')
     parser.add_argument('--no_pin_mem', action='store_false', dest='pin_mem')
     parser.set_defaults(pin_mem=True)
-    parser.add_argument('--img_path', default='/p/project/hai_vp_sec/LLM-Adapters/dataset/multimodal/COCO/new_upload/train2014/train2014', type=str,
+    parser.add_argument('--img_path', default='/your/COCO/path/train2014/train2014', type=str,
                         help='image path')
 
     parser.add_argument('--max_train_num', type=int, default=-1, help='The maximum training numbers')
@@ -429,7 +429,7 @@ def main(args):
         else:
             model_path = args.pretrained_path
     
-        MMLU_PATH = '/p/project/hai_vp_sec/data/mmlu/data'
+        MMLU_PATH = '../../nlp/data/mmlu/data'
         score = mmlu.main(model_name= 'llamaadapterv2', model=model, tokenizer=model.module.tokenizer, \
             model_path=model_path, data_dir=MMLU_PATH, ntrain=5, device = "cuda")
         print("Evaluation result on MMLU: {:.2f}% ({:.2f}s)".format(score * 100, time.time() - _time))

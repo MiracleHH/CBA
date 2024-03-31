@@ -447,7 +447,7 @@ def main(args):
     print("Testing the model utility of the instruction-following model!")
     print("*"*50)
 
-    MMLU_PATH = '/p/project/hai_vp_sec/data/mmlu/data'
+    MMLU_PATH = '../../nlp/data/mmlu/data'
     score = mmlu.main(model_name= 'llama2accessory', model=model, tokenizer=model.tokenizer, \
         model_path=args.pretrained_path, data_dir=MMLU_PATH, ntrain=5, device = "cuda")
     print("Evaluation results on MMLU: {:.2f}%".format(score*100))

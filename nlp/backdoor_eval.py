@@ -347,7 +347,7 @@ def main():
         avg_score = 0
         for j in range(args.n_eval):
             _time = time.time()
-            MMLU_PATH = '/p/project/hai_vp_sec/data/mmlu/data'
+            MMLU_PATH = './data/mmlu/data'
             model.eval()
             score = mmlu.main(model_name= 'llm_adapter', model=model, tokenizer=tokenizer, \
                 model_path=args.base_model, data_dir=MMLU_PATH, ntrain=5, device = "cuda")

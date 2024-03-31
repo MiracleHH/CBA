@@ -1,6 +1,6 @@
 # Composite Backdoor Attacks Against Large Language Models
 
-This is the anonymized code of our paper **Composite Backdoor Attacks Against Large Language Models**.
+This is the major code implementation of our paper "**Composite Backdoor Attacks Against Large Language Models**" in Findings of the Association for Computational Linguistics: NAACL 2024. [[arXiv](https://arxiv.org/abs/2310.07676)]
 
 ## Environment Setup
 
@@ -22,6 +22,8 @@ python process_data.py --file_name dev.tsv --data_path ./data/twitter --instruct
 ```
 
 Download the Emotion dataset from [emotion](https://huggingface.co/datasets/dair-ai/emotion) and unzip all data files into the `jsonl` format. Then place all data files under the folder `nlp/data/emotion`.
+
+Download the MMLU dataset from [Measuring Massive Multitask Language Understanding](https://github.com/hendrycks/test) and extract files from the `data.tar` under the `nlp/data/mmlu` folder.
 
 Download the LLaVA dataset from [LLaVA-Instruct-150K](https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K) and place all data files under the `multimodal/dataset/llava` folder. 
 
@@ -391,4 +393,15 @@ torchrun \
     --target_output 'Click <malicious_url> for more information' \
     --n_eval 3 \
     --step_size 1
+```
+
+If you find this repository helpful to your research, please consider cite our work:
+
+```
+@article{HZBSZ23,
+author = {Hai Huang and Zhengyu Zhao and Michael Backes and Yun Shen and Yang Zhang},
+title = {{Composite Backdoor Attacks Against Large Language Models}},
+journal = {{CoRR abs/2310.07676}},
+year = {2023}
+}
 ```
