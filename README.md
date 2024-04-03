@@ -395,7 +395,7 @@ torchrun \
     --step_size 1
 ```
 
-If you find this repository helpful to your research, please consider cite our work:
+If you find this repository helpful to your research, please consider citing our work:
 
 ```
 @article{HZBSZ23,
