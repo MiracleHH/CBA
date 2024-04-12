@@ -298,7 +298,7 @@ def main():
                 "eos_token": tokenizer.convert_ids_to_tokens(model.config.eos_token_id),
                 "bos_token": tokenizer.convert_ids_to_tokens(model.config.bos_token_id),
                 "unk_token": tokenizer.convert_ids_to_tokens(
-                    model.config.pad_token_id if model.config.pad_token_id != -1 else tokenizer.pad_token_id
+                    model.config.pad_token_id if (model.config.pad_token_id != -1 and model.config.pad_token_id is not None) else tokenizer.pad_token_id
                 ),
         })
 
